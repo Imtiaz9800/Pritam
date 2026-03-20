@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pritam Sarkar | Beyond The Cure - Patient Awareness Guide</title>
+    <style>
+        :root {
+            --primary-color: #5BA3D0;
+            --secondary-color: #9FD3C7;
+            --accent-color: #FFB6B9;
+            --text-color: #4A4A4A;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+            --soft-blue: #E8F4F8;
+            --gradient-light: linear-gradient(135deg, #5BA3D0 0%, #9FD3C7 100%);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        header nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        header nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E8F4F8 0%, #F0F9FF 50%, #FFF5F5 100%);
+            color: var(--text-color);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1.5" fill="rgba(91,163,208,0.15)"/></svg>');
+            background-size: 60px 60px;
+            animation: float 25s infinite linear;
+        }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-text h2 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;            animation: fadeInDown 1s ease-out;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .hero-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            animation: fadeInDown 1s ease-out 0.3s both;
+            color: var(--text-color);
+        }
+        .hero-text p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            opacity: 0.85;
+            color: var(--text-color);
+        }
+        
+        /* 3D Book Cover */
+        .book-cover-container {
+            perspective: 1000px;
+            animation: fadeInRight 1s ease-out 0.5s both;
+        }
+        .book-cover {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: bookFloat 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+        .book-cover:hover {
+            transform: rotateY(-10deg) rotateX(5deg) scale(1.05);
+        }
+        .book-cover img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 
+                0 25px 70px rgba(91,163,208,0.3),
+                0 0 0 1px rgba(255,255,255,0.3),
+                inset 0 0 60px rgba(255,255,255,0.2);
+            transform: translateZ(50px);
+        }
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            top: 10px;            left: 10px;
+            right: -10px;
+            bottom: -10px;
+            background: inherit;
+            border-radius: 12px;
+            transform: translateZ(-50px);
+            filter: blur(20px);
+            opacity: 0.5;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(91,163,208,0.4);
+        }
+        .btn:hover {
+            background: #4A94B8;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(91,163,208,0.5);
+        }
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-secondary:hover {
+            background: var(--soft-blue);
+            transform: translateY(-3px);
+        }
+        
+        /* Quote Section */
+        .quote-section {
+            background: var(--soft-blue);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .quote-section blockquote {
+            font-size: 1.5rem;            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            color: var(--primary-color);
+            position: relative;
+            font-weight: 500;
+        }
+        .quote-section blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary-color);
+            opacity: 0.4;
+            position: absolute;
+            top: -30px;
+            left: -50px;
+        }
+        .quote-section cite {
+            display: block;
+            margin-top: 20px;
+            font-weight: 600;
+            font-style: normal;
+            color: var(--text-color);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            color: #666;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }        .feature-card {
+            background: var(--light-bg);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(91,163,208,0.1);
+            border: 1px solid rgba(91,163,208,0.1);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(91,163,208,0.2);
+            background: var(--white);
+        }
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        /* Authors Section */
+        .authors {
+            background: linear-gradient(135deg, #F0F9FF 0%, #FFF5F5 100%);
+            color: var(--text-color);
+            padding: 80px 0;
+        }
+        .authors-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .authors-image {
+            text-align: center;
+            perspective: 1000px;
+        }
+        .authors-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(91,163,208,0.25);
+            transition: transform 0.5s ease;
+        }
+        .authors-image img:hover {
+            transform: rotateY(-5deg) scale(1.02);        }
+        .authors h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: left;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .authors p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        /* Publisher Section */
+        .publisher {
+            background: var(--light-bg);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .publisher-logo {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #5BA3D0 0%, #9FD3C7 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+        footer h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        footer a {
+            color: var(--white);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        footer a:hover {
+            opacity: 0.8;
+        }        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes bookFloat {
+            0%, 100% {
+                transform: translateY(0) rotateY(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotateY(5deg);
+            }
+        }
+        @keyframes float {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 60px 60px;
+            }
+        }
+        
+        /* Responsive */        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+            .hero-text h3 {
+                font-size: 1.4rem;
+            }
+            .authors-content {
+                grid-template-columns: 1fr;
+            }
+            .authors h2 {
+                text-align: center;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            header nav a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>📚 Pritam Sarkar</h1>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#authors">Authors</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Beyond The Cure</h2>
+                    <h3>The Silent Pages Inside Every Pill</h3>
+                    <p>A Patient Awareness Guide On Medicines, Interactions & Side Effects</p>                    <p style="font-size: 1rem; margin-bottom: 30px; opacity: 0.8;">✓ Pharmacist-Validated Resource</p>
+                    <a href="#" class="btn">Download Guide</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="book-cover-container">
+                    <div class="book-cover">
+                        <img src="book-cover-3d.jpg" alt="Beyond The Cure Book Cover - 3D Effect">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <blockquote>
+                The practice of medicine is an art, based on science, and supported by libraries
+            </blockquote>
+            <cite>- Sir William Osler</cite>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why This Guide Matters</h2>
+            <p class="section-subtitle">Bridging the gap between clinical guidance and patient comprehension</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">💊</span>
+                    <h3>Plain Language</h3>
+                    <p>Simplifies complex pharmacological processes into easy-to-understand terms for everyday patients.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚠️</span>
+                    <h3>Side Effects</h3>
+                    <p>Helps patients recognize common side effects before they become serious health concerns.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🍽️</span>
+                    <h3>Drug-Food Interactions</h3>
+                    <p>Navigate dangerous drug-food interactions safely with practical daily use guidelines.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🚨</span>
+                    <h3>Red-Flag Symptoms</h3>
+                    <p>Identify critical symptoms that require urgent medical review immediately.</p>
+                </div>
+                <div class="feature-card">                    <span class="feature-icon">✅</span>
+                    <h3>Pharmacist-Validated</h3>
+                    <p>All content reviewed and validated by licensed pharmacists for accuracy and safety.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Prevent Harm</h3>
+                    <p>Empowers individuals to reduce preventable medication-related harm and foster safer practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authors Section -->
+    <section class="authors" id="authors">
+        <div class="container">
+            <div class="authors-content">
+                <div class="authors-image">
+                    <img src="authors-photo.jpg" alt="Authors Pritam Sarkar and Saswati Pal Choudhuri">
+                </div>
+                <div class="authors-text">
+                    <h2>Meet The Authors</h2>
+                    <h3 style="margin-bottom: 25px; font-weight: 500; color: var(--text-color);">Pritam Sarkar & Saswati Pal Choudhuri</h3>
+                    <p>
+                        Dedicated to empowering individuals through knowledge and safer healthcare practices. 
+                        This guide transforms the "silent risks" of medication into informed awareness, 
+                        providing a pharmacist-validated resource for daily use.
+                    </p>
+                    <p>
+                        Their work bridges the gap between clinical guidance and patient comprehension, 
+                        helping patients recognize common side effects, navigate drug-food interactions, 
+                        and identify symptoms that require urgent medical review.
+                    </p>
+                    <p style="margin-top: 25px; font-style: italic; opacity: 0.9; color: var(--primary-color);">
+                        "By bridging the gap between clinical guidance and patient comprehension, 
+                        this book empowers individuals to reduce preventable harm and foster safer healthcare practices."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publisher Section -->
+    <section class="publisher">
+        <div class="container">
+            <div class="publisher-logo">Seacom Skills University</div>
+            <p style="font-size: 1.2rem; margin-bottom: 20px; color: var(--text-color);">Proudly Published By</p>
+            <p style="max-width: 600px; margin: 0 auto; color: #666;">
+                Committed to advancing healthcare education and patient safety through innovative learning resources.
+            </p>        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <h3>Beyond The Cure: The Silent Pages Inside Every Pill</h3>
+            <p style="margin: 15px 0;">Published by Seacom Skills University</p>
+            <p style="margin-top: 25px;">
+                <a href="#">Contact Us</a> | 
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a>
+            </p>
+            <p style="margin-top: 25px; opacity: 0.9; font-size: 0.9rem;">
+                © 2024 Pritam Sarkar. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for feature cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach((card, index) => {            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>
